@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Kalam", cursive;
+  /* another cool font style */
+  /* font-family: 'Lora', serif; */
+}
+
+div {
+  border: rgb(97, 97, 97) 2px solid;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.book-card {
+  background-color: floralwhite;
+  font-size: 1.15rem;
+}
+
+.book-card p,
+.form-container p {
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.form-popup {
+  display: none;
+  background-color:rgb(166, 219, 255);
+}
+
+.library {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.library:empty {
+  border: none;
+}
+
+button {
+  font-size: 1.05rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.open-form {
+  margin: 0 0 0 20px;
+}
+
+input {
+    padding: 0 5px;
+    font-size: 1rem;
+}
