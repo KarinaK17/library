@@ -6,6 +6,11 @@
   /* font-family: 'Lora', serif; */
 }
 
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
 div {
   border: rgb(97, 97, 97) 2px solid;
   margin: 20px;
