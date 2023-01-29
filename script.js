@@ -1,21 +1,23 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = Boolean(read);
-  this.info = function() {
-    if (this.read === true) {
-      return `${this.title} by ${this.author}, ${this.pages}, already read.`;
-    }
-    return `${this.title} by ${this.author}, ${this.pages}, not read yet.`;
-  };
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = Boolean(read);
+    this.info = function () {
+      if (this.read === true) {
+        return `${this.title} by ${this.author}, ${this.pages}, already read.`;
+      }
+      return `${this.title} by ${this.author}, ${this.pages}, not read yet.`;
+    };
+  }
 }
 
 const library = document.querySelector(".library");
 
-Book.prototype.changeread = function() {
+Book.prototype.changeread = function () {
   if (this.read === true) {
     this.read = false;
   } else {
@@ -31,14 +33,11 @@ function addBookToLibrary(newBook) {
   bookCard.classList.add("book-card");
   bookCard.setAttribute("id", `card-number-${Date.now()}`);
   library.appendChild(bookCard);
-  bookCard.style.background =
-          `rgba(${ 
-          Math.floor(Math.random() * 256) 
-          },${ 
-          Math.floor(Math.random() * 256) 
-          }, ${ 
-          Math.floor(Math.random() * 256) 
-          }, ${  0.5}`;
+  bookCard.style.background = `rgba(${Math.floor(
+    Math.random() * 256
+  )},${Math.floor(Math.random() * 256)}, ${Math.floor(
+    Math.random() * 256
+  )}, ${0.5}`;
 
   const title = document.createElement("p");
   bookCard.appendChild(title);
@@ -101,8 +100,8 @@ const addFromForm = (e) => {
   console.log(myLibrary, "after form submition");
   document.querySelector("form").reset();
   addBookToLibrary(formBook);
-//   add if you want the form to dissapear after submitting
-//   document.getElementById("myForm").style.display = "none";
+  //   add if you want the form to dissapear after submitting
+  //   document.getElementById("myForm").style.display = "none";
 };
 
 document.addEventListener("DOMContentLoaded", () => {
