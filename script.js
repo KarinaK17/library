@@ -87,19 +87,26 @@ closeButton.addEventListener("click", () => {
   document.getElementById("myForm").style.display = "none";
 });
 
+const form = document.querySelector("form");
+
 const addFromForm = (e) => {
   e.preventDefault();
+  const checkVal = form.checkValidity();
+  form.reportValidity();
 
-  const formBook = new Book(
-    document.getElementById("title-form").value,
-    document.getElementById("author-form").value,
-    document.getElementById("pages-form").value,
-    document.getElementById("read-form").checked
-  );
-  myLibrary.push(formBook);
-  console.log(myLibrary, "after form submition");
-  document.querySelector("form").reset();
-  addBookToLibrary(formBook);
+  if (checkVal) {
+    const formBook = new Book(
+      document.getElementById("title-form").value,
+      document.getElementById("author-form").value,
+      document.getElementById("pages-form").value,
+      document.getElementById("read-form").checked
+    );
+    myLibrary.push(formBook);
+
+    console.log(myLibrary, "after form submition");
+    document.querySelector("form").reset();
+    addBookToLibrary(formBook);
+  }
   //   add if you want the form to dissapear after submitting
   //   document.getElementById("myForm").style.display = "none";
 };
