@@ -23,10 +23,12 @@ Book.prototype.changeread = function () {
   } else {
     this.read = true;
   }
-  console.log("prototype method");
 };
 
-console.log(myLibrary.length);
+Book.prototype.deleteFromArray = function () {
+  const index = myLibrary.indexOf(this);
+  myLibrary.splice(index, 1);
+};
 
 function addBookToLibrary(newBook) {
   const bookCard = document.createElement("div");
@@ -66,7 +68,7 @@ function addBookToLibrary(newBook) {
     newBook.changeread();
     info.textContent = `Info: ${newBook.info()}`;
     read.textContent = `Already read: ${newBook.read}`;
-    console.log(`inside a change-status button ${newBook.read}`);
+    console.log(myLibrary);
   });
 
   const deleteBook = document.createElement("button");
@@ -74,6 +76,8 @@ function addBookToLibrary(newBook) {
   deleteBook.textContent = "Delete from the library";
   deleteBook.addEventListener("click", () => {
     library.removeChild(bookCard);
+    newBook.deleteFromArray();
+    console.log(myLibrary);
   });
 }
 
@@ -103,7 +107,7 @@ const addFromForm = (e) => {
     );
     myLibrary.push(formBook);
 
-    console.log(myLibrary, "after form submition");
+    console.log(myLibrary);
     document.querySelector("form").reset();
     addBookToLibrary(formBook);
   }
